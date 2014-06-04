@@ -10,7 +10,7 @@ namespace Mood_o_Meter.Hubs
     {
         public void Hello()
         {
-            Clients.All.hello();
+            Clients.All.hello2();
         }
     }
 }
