@@ -129,7 +129,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Hubs\MoodHub.cs" />
+    <Compile Include="Hubs\MooodHub.cs" />
     <Compile Include="Models\MoMContext.cs" />
     <Compile Include="Models\Mood.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
