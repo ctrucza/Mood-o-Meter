@@ -32,7 +32,7 @@ namespace Mood_o_Meter.Controllers
             db.Moods.Add(mood);
             db.SaveChanges();
 
-            IHubContext hubContext = GlobalHost.ConnectionManager.GetHubContext<MoodHub>();
+            IHubContext hubContext = GlobalHost.ConnectionManager.GetHubContext<MooodHub>();
             hubContext.Clients.All.hello();
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
@@ -41,6 +41,9 @@ namespace Mood_o_Meter.Controllers
         [HttpGet]
         public JsonResult GetMoods()
         {
+
+            
+
             DbSet<Mood> moods = db.Moods;
             return Json(moods, JsonRequestBehavior.AllowGet);
         }

@@ -8,12 +8,14 @@
 
     reloadMoods();
 
-    var moodHub = $.connection.moodHub;
-    moodHub.client.hello = function () {
-        alert('Hello!');
+    var mooodHub = $.connection.mooodHub;
+    mooodHub.client.hello = function () {
+        alert("hello");
     }
 
-    moodHub.server.hello();
+    $.connection.hub.start().done(function() {
+        mooodHub.server.hello();
+    });
 };
 
 function good() {
