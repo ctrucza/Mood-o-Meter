@@ -3,17 +3,8 @@
     var HEIGHT = 400;
 
     function update(moods) {
-        clear();
         var words = moodsToWords(moods);
         doLayout(words);
-    }
-
-    function clear() {
-        getElement().empty();
-    }
-
-    function getElement() {
-        return $("#mood-cloud");
     }
 
     function moodsToWords(moods) {
@@ -46,6 +37,8 @@
 
     function onLayoutDone(data) {
         var fillScale = d3.scale.category20();
+
+        $("#mood-cloud").empty();
 
         d3.select("#mood-cloud")
             .append("svg")
