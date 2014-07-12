@@ -1,13 +1,13 @@
-﻿var MoodsCloud = (function () {
+﻿function MoodsCloud(containerSelector, moods) {
     var WIDTH = 1200;
     var HEIGHT = 400;
 
-    function update(moods) {
-        var words = moodsToWords(moods);
+    this.update = function () {
+        var words = getWords();
         doLayout(words);
     }
 
-    function moodsToWords(moods) {
+    function getWords() {
         return moods.map(moodToWord);
     }
 
@@ -38,9 +38,9 @@
     function onLayoutDone(data) {
         var fillScale = d3.scale.category20();
 
-        $("#mood-cloud").empty();
+        $(containerSelector).empty();
 
-        d3.select("#mood-cloud")
+        d3.select(containerSelector)
             .append("svg")
             .attr("width", WIDTH)
             .attr("height", HEIGHT)
@@ -80,8 +80,4 @@
             return item.text;
         }
     }
-
-    return {
-        update: update
-    }
-})();
+};

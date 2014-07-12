@@ -56,7 +56,7 @@ function showMoodCloud() {
     });
 }
 
-
 function showMoods(moods) {
-    MoodsCloud.update(moods);
+    var cloud = new MoodsCloud("#mood-cloud", moods);
+    cloud.update();
 }
