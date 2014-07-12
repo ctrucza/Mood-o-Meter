@@ -1,4 +1,7 @@
 ﻿var MoodsCloud = (function () {
+    var WIDTH = 1200;
+    var HEIGHT = 400;
+
     function update(moods) {
         clear();
         var words = moodsToWords(moods);
@@ -23,7 +26,7 @@
 
     function doLayout(words) {
         d3.layout.cloud()
-            .size([getWidth(), getHeight()])
+            .size([WIDTH, HEIGHT])
             .words(words)
             .padding(8)
             .rotate(getRotation)
@@ -41,18 +44,13 @@
         }
     }
 
-    function getWidth() {
-        return getElement().width();
-    }
-
-    function getHeight() {
-        return getElement().height();
-    }
-
     function onLayoutDone(data) {
         var fillScale = d3.scale.category20();
 
         d3.select("#mood-cloud")
+            .append("svg")
+            .attr("width", WIDTH)
+            .attr("height", HEIGHT)
             .append("g")
             .attr("transform", getGroupTransform)
             .selectAll("text")
@@ -70,7 +68,7 @@
          * as word (item) coordinates are relative to the center of the cloud etc.
          */
         function getGroupTransform() {
-            return "translate(" + [getWidth() / 2, getHeight() / 2] + ")";
+            return "translate(" + [WIDTH / 2, HEIGHT / 2] + ")";
         }
 
         function getTransform(item) {
