@@ -22,6 +22,7 @@ namespace Mood_o_Meter.Controllers
         [HttpPost]
         public ActionResult Create(string moood)
         {
+
             Mood mood = new Mood
             {
                 Moood = moood,

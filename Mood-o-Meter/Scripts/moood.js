@@ -157,3 +157,30 @@ var MoodsCloud = (function() {
         update: update
     }
 })();
+
+
+var person = {
+    name: "John",
+    age: 42
+}
+
+var person = {
+    name: "John",
+    age: 42,
+    say_something: function() {
+        console.log(this.name);
+    }
+}
+
+var add = function (howMuch, value) { return howMuch + value };
+
+var add = function(howMuch) {
+    return function(value) {
+        return value + howMuch;
+    }
+}
+var add5 = add(5);
+console.log(add5(10));
+var add2 = add(2);
+console.log(add2(10));
+

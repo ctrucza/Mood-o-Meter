@@ -29,6 +29,17 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="MoMContext-Deployment" Order="2">
+          <Destination Path="Server=tcp:bi7xuplme4.database.windows.net,1433%3bDatabase=moodometer_db%3bUser ID=moodometer%40bi7xuplme4%3bPassword=HabMoodPmifhnb42%3bTrusted_Connection=False%3bEncrypt=True%3bConnection Timeout=30%3b" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28localdb%29\v11.0%3bAttachDbFilename=|DataDirectory|MoMContext-20130721140547.mdf%3bInitial Catalog=MoMContext-20130721140547%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\MoMContext-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -149,6 +160,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\d3.layout.cloud.js" />
+    <None Include="Properties\PublishProfiles\moodometer - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\moodometer - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\d3.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
